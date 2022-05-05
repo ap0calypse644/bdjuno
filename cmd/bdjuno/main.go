@@ -16,8 +16,8 @@ import (
 	"github.com/forbole/bdjuno/v3/database"
 	"github.com/forbole/bdjuno/v3/modules"
 
-	// gaiaapp "github.com/cosmos/gaia/v6/app"
-	"github.com/cosmos/cosmos-sdk/simapp"
+	gaiaapp "github.com/cosmos/gaia/v6/app"
+	// "github.com/cosmos/cosmos-sdk/simapp"
 	desmosapp "github.com/desmos-labs/desmos/v2/app"
 )
 
@@ -57,7 +57,8 @@ func main() {
 // This should be edited by custom implementations if needed.
 func getBasicManagers() []module.BasicManager {
 	return []module.BasicManager{
-		simapp.ModuleBasics,
+		// simapp.ModuleBasics,
+		gaiaapp.ModuleBasics,
 		desmosapp.ModuleBasics,
 	}
 }
