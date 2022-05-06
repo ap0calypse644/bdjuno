@@ -1,0 +1,70 @@
+chain:
+    bech32_prefix: [quicksilver prefix]
+    modules:
+        - actions
+        - messages
+        - auth
+        - bank
+        - consensus
+        - feegrant
+        - gov
+        - mint
+        - modules
+        - pricefeed
+        - staking
+        - slashing
+        - distribution
+        - telemetry
+actions:
+    port: 3000
+    # node: (optional, will use those in node section below if not set)
+    #     rpc:
+    #         address: [RPC endpoint for hasura actions(for data query directly to the node)]
+    #     grpc:
+    #         address: [gRPC endpoint]
+    #         insecure: true
+node:
+    type: remote
+    config:
+        rpc:
+            client_name: bdjuno-quicksilver-clien
+            address: [RPC endpoint]
+            max_connections: 10
+        grpc:
+            address: [gRPC endpoint]
+            insecure: true #false if https
+parsing:
+    workers: 1
+    listen_new_blocks: true
+    parse_old_blocks: true
+    genesis_file_path: [path/to/genesis.json]
+    start_height: 1
+    parse_genesis: false
+    average_block_time: 5s # Config for query frequency for new blocks
+database:
+    name: [Database name]
+    host: 
+    port: 
+    user: 
+    password: 
+    schema: public
+    max_open_connections: 10
+    max_idle_connections: 20
+    partition_size: 10000 # if you are using psql, this will creates partition each 10000 block height for searching efficiency
+    partition_batch: 1000 # can ignore if not running a migration from v2 -> v3
+logging:
+    level: debug
+    format: text
+telemetry: # monitorying port
+    port: 9092 
+pruning:
+    keep_recent: 100
+    keep_every: 500
+    interval: 10
+pricefeed:
+    tokens:
+        - name: [denom]
+          units:
+            - denom: [denom]
+              exponent: 6
+              price_id: [coin gecko price id]
