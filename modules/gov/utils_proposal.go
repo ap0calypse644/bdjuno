@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"strings"
 
-	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
 	proposaltypes "github.com/cosmos/cosmos-sdk/x/params/types/proposal"
 	slashingtypes "github.com/cosmos/cosmos-sdk/x/slashing/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
+	minttypes "github.com/saage-tech/saage/x/mint/types"
 	tmctypes "github.com/tendermint/tendermint/rpc/core/types"
 
 	"google.golang.org/grpc/codes"

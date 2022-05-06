@@ -8,8 +8,8 @@ import (
 
 	"github.com/forbole/bdjuno/v3/types"
 
-	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
 	"github.com/rs/zerolog/log"
+	minttypes "github.com/saage-tech/saage/x/mint/types"
 )
 
 // HandleGenesis implements modules.Module

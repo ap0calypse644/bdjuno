@@ -2,7 +2,7 @@ package source
 
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
+	minttypes "github.com/saage-tech/saage/x/mint/types"
 )
 
 type Source interface {
