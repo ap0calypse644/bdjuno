@@ -19,9 +19,16 @@ func (m *Module) StoreValidatorsFromMsgCreateValidator(height int64, msg *stakin
 	if err != nil {
 		return fmt.Errorf("error while unpacking pub key: %s", err)
 	}
-	avatarURL, err := keybase.GetAvatarURL(msg.Description.Identity)
-	if err != nil {
-		return fmt.Errorf("error while getting Avatar URL: %s", err)
+
+	var avatarURL = ""
+	fmt.Println(msg.Description.Identity, msg.ValidatorAddress)
+	if msg.Description.Identity != "" {
+		fmt.Println(msg.Description.Identity)
+		avatarURL, err = keybase.GetAvatarURL(msg.Description.Identity)
+		if err != nil {
+			fmt.Println("error while getting Avatar URL: ", err)
+			avatarURL = ""
+		}
 	}
 
 	// Save the validators
